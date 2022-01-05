@@ -9,7 +9,7 @@ def normalize(x):
 
     for i in range(np.shape(x)[1]):
         for j in range(np.shape(x[:, i])[0]):
-            x_normalized[j][i] = (x[j][i] - max(x[:, i])) / (max(x[:, i]) - min(x[:, i]))
+            x_normalized[j][i] = (x[j][i] - min(x[:, i])) / (max(x[:, i]) - min(x[:, i]))
 
     return x_normalized
 
@@ -18,7 +18,7 @@ def normalize_output(output):
     y_normalized = np.zeros(np.shape(output)[0])
 
     for j in range(np.shape(output)[0]):
-        y_normalized[j] = (output[j] - max(output)) / (max(output) - min(output))
+        y_normalized[j] = (output[j] - min(output)) / (max(output) - min(output))
 
     return y_normalized
 
